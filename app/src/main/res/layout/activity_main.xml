@@ -42,6 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginEnd="120dp"
+        android:checked="false"
         android:minHeight="48dp"
         android:text="@string/phase_switch_selecteurMusicien"
         app:layout_constraintEnd_toEndOf="parent"
