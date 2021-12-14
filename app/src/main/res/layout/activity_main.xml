@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/xml_switch_MainActivity_selecteurMusiciens"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/xml_edT_MainActivity_nomMusicien"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="@string/phrase_nom_du_musicien"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_tv_MainActivity_titreDuPage"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck,TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/xml_edT_MainActivity_nombreEtoile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/phrase_nombre_d_etoile"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_edT_MainActivity_nomMusicien"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
+    <Switch
+        android:id="@+id/xml_switch_MainActivity_SelecteurMusicien"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
+        android:minHeight="48dp"
+        android:text="@string/phase_switch_selecteurMusicien"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_edT_MainActivity_nombreEtoile" />
+
+    <Button
+        android:id="@+id/xml_button_MainActivity_AfficherTout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="90dp"
+        android:onClick="act_voirTout"
+        android:text="@string/phase_voir_tout"
+        app:layout_constraintEnd_toStartOf="@+id/xml_button_MainActivity_Ajouter"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_switch_MainActivity_SelecteurMusicien" />
+
+    <Button
+        android:id="@+id/xml_button_MainActivity_Ajouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="90dp"
+        android:onClick="act_ajouterMusicien"
+        android:text="@string/phase_ajouter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_switch_MainActivity_SelecteurMusicien" />
+
+    <ListView
+        android:id="@+id/xml_listview_MainActivity_listMusiciens"
+        android:layout_width="409dp"
+        android:layout_height="491dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/xml_button_MainActivity_AfficherTout" />
+
+    <TextView
+        android:id="@+id/xml_tv_MainActivity_titreDuPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="158dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="187dp"
+        android:text="@string/phase_music_hall"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
