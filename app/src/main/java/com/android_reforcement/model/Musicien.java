@@ -52,7 +52,7 @@ public class Musicien {
         this.musicien_etoile = musicien_etoile;
     }
 
-    public boolean getIsActive() {
+    public boolean isActive() {
         return isActive;
     }
 

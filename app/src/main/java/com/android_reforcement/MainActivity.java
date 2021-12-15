@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
 
+import com.android_reforcement.database.DatabaseHelper;
 import com.android_reforcement.extraFonctions.AppelToast;
 import com.android_reforcement.model.Musicien;
 
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity {
 
             Musicien musicien= new Musicien(nomMusicien,nombreEtoileMusicien,activeMusicien);
             musicienList.add(musicien);
+
+            DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+            databaseHelper.addMusicien(musicien);
 
             AppelToast.displayCustomToast(this, "Nouveau musicien est créé.");
         } catch (Exception e){
