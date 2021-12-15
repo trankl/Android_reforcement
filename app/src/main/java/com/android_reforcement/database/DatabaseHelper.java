@@ -2,11 +2,15 @@ package com.android_reforcement.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 import com.android_reforcement.model.Musicien;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -15,7 +19,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     String f_musicien_nom ="musicien_nom";
     String f_musicien_etoile = "musicien_etoile";
     String f_musicien_active = "isActive";
-
 
 
     public DatabaseHelper(@Nullable Context context) {
@@ -69,8 +72,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             resultatInsertion = true;
         }
 
+        ref_db.close();
         return resultatInsertion;
+    }
 
+    public List<Musicien> getAllMusiciens(){
+        List<Musicien> listMusiciens = new ArrayList<Musicien>();
 
+        SQLiteDatabase ref_db = this.getWritableDatabase();
+
+        String getListMusicienStatement = "SELECT * FROM " +table_musicien;
+
+        //Cette interface cursor fournit un accès en lecture-écriture aléatoire à l'ensemble de résultats renvoyé par une requête de base de données.
+        Cursor cursor_resultatALaRequete = ref_db.rawQuery(getListMusicienStatement, null);
+
+        if(cursor_resultatALaRequete.moveToFirst() == true){
+            do {
+                int id = cursor_resultatALaRequete.getInt(0);
+                String nom = cursor_resultatALaRequete.getString(1);
+                int nbEtoile = cursor_resultatALaRequete.getInt(2);
+                boolean isActive = cursor_resultatALaRequete.getInt(3) == 1 ? true : false;
+
+                Musicien musicien = new Musicien(id, nom, nbEtoile, isActive);
+
+                listMusiciens.add(musicien);
+            } while (cursor_resultatALaRequete.moveToNext());
+        }
+
+        // fermer le cursor
+        cursor_resultatALaRequete.close();
+
+        // fermer la BD
+        ref_db.close();
+
+        return listMusiciens;
     }
 }

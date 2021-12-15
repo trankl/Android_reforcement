@@ -29,7 +29,7 @@ public class Musicien {
 
     @Override
     public String toString() {
-        return "Musicien [idMusicien=" + musicien_id + ", nom=" + musicien_nom + ", nombre d'etoile" + musicien_etoile  + "] ";
+        return "Musicien [idMusicien=" + musicien_id + ", nom=" + musicien_nom + ", nombre d'etoile =" + musicien_etoile  + "] ";
     }
 
     public int getMusicien_id() {

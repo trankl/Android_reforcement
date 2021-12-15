@@ -3,6 +3,7 @@ package com.android_reforcement;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -44,7 +45,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void act_voirTout(View view) {
 
-       AppelToast.displayCustomToast(this, "Voir la liste des musicien");
+        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+
+        musicienList = databaseHelper.getAllMusiciens();
+
+        // ArrayAdapter a utilisé à afficher le ListView avec des ListItem simple
+        // android.R.layout.simple_list_item_1 est une disposition prédéfinie constante d'Android.
+        ArrayAdapter arrayAdapter_listMusiciens = new ArrayAdapter<Musicien>(this, android.R.layout.simple_list_item_1,musicienList);
+
+        listview_MainActivity_listMusiciens.setAdapter(arrayAdapter_listMusiciens);
+
+       AppelToast.displayCustomToast(this, "Voir la liste des musicien" + musicienList);
 
     }
 
@@ -58,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
             Musicien musicien= new Musicien(nomMusicien,nombreEtoileMusicien,activeMusicien);
             musicienList.add(musicien);
 
+            // on creer 1 objet type DatabaseHelper pour appeler la BD afin de memoriser ce musicien
             DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+            // on ajoute ce musicien à la BD
             databaseHelper.addMusicien(musicien);
 
             AppelToast.displayCustomToast(this, "Nouveau musicien est créé.");
