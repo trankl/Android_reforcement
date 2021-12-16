@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Switch switch_MainActivity_SelecteurMusicien;
 
     List<Musicien> musicienList= new ArrayList<>();
-
+    DatabaseHelper databaseHelper = MyApplication.getInstance().getDatabaseHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fct_remplirvue();
+
+        // methode pour initialisation le DatabaseHelper
+        //initialDBHelper();
 
     }
 
@@ -40,12 +43,15 @@ public class MainActivity extends AppCompatActivity {
         this.listview_MainActivity_listMusiciens =findViewById(R.id.xml_listview_MainActivity_listMusiciens);
         this.switch_MainActivity_SelecteurMusicien =findViewById(R.id.xml_switch_MainActivity_SelecteurMusicien);
     }
+/*
+    public void initialDBHelper(){
+        // on creer 1 objet type DatabaseHelper pour appeler la BD afin de memoriser ce musicien
+        databaseHelper = new DatabaseHelper(MainActivity.this);
+    }
 
-
+ */
 
     public void act_voirTout(View view) {
-
-        DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
 
         musicienList = databaseHelper.getAllMusiciens();
 
@@ -55,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         listview_MainActivity_listMusiciens.setAdapter(arrayAdapter_listMusiciens);
 
-       AppelToast.displayCustomToast(this, "Voir la liste des musicien" + musicienList);
+       AppelToast.displayCustomToast(this, "Voir la liste des musicien");
 
     }
 
@@ -70,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             musicienList.add(musicien);
 
             // on creer 1 objet type DatabaseHelper pour appeler la BD afin de memoriser ce musicien
-            DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
+           // DatabaseHelper databaseHelper = new DatabaseHelper(MainActivity.this);
             // on ajoute ce musicien à la BD
             databaseHelper.addMusicien(musicien);
 
