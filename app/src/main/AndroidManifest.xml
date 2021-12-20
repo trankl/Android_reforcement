@@ -3,14 +3,17 @@
     package="com.android_reforcement">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Android_reforcement"
-        android:name=".MyApplication">
-
+        android:theme="@style/Theme.Android_reforcement">
+        <activity
+            android:name=".Act_Preference"
+            android:label="Ma categorie preference"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,5 +24,6 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 </manifest>

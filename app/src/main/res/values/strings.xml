@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Android_reforcement</string>
+    <string name="app_name">Les Musiciens</string>
     <string name="phrase_nom_du_musicien">Nom du musicien</string>
     <string name="phrase_nombre_d_etoile">Nombre d\'etoile</string>
     <string name="phase_switch_selecteurMusicien">Musicien sélectionné</string>
@@ -7,4 +7,11 @@
     <string name="phase_ajouter">Ajouter</string>
     <string name="phase_music_hall">Music Hall</string>
     <string name="number">Number</string>
+    <string name="phase_mode_sombre">Mode sombre</string>
+    <string name="mot_retour">Retour</string>
+    <string name="mot_ok">OK</string>
+    <string name="phase_number_float">Number Float</string>
+    <string name="mot_message">Message</string>
+    <string name="mot_nombre">Nombre</string>
+    <string name="mot_preferences">Preferences</string>
 </resources>

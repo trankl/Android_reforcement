@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="Ma categorie preference">
+        <CheckBoxPreference
+            android:key="Pref_check_box"
+            android:title="Case à cocher"
+            android:summary="Description"
+            android:defaultValue="true"/>
+        <EditTextPreference
+            android:key="Pref_message"
+            android:title="votre message preference"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>
